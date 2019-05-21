@@ -35,13 +35,6 @@ namespace GradeBook.GradeBooks
             else
                 return 'F';
         }
-        /**
-         In the RankedGradeBook class create an override for the GetLetterGrade method.
-        The GetLetterGrade method returns a char and accepts a double named "averageGrade".
-        If there are less than 5 students throw an InvalidOperationException.
-        (Ranked-grading requires a minimum of 5 students to work)
-        Return 'F' at the end of the method.
-         * **/
 
         public override void CalculateStatistics()
         {
