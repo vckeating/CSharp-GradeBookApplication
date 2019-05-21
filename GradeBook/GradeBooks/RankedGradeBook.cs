@@ -46,7 +46,6 @@ namespace GradeBook.GradeBooks
             base.CalculateStatistics();
         }
 
-        //This method does not check if there is a grade on file for each student
         public override void CalculateStudentStatistics(string name)
         {
             if (Students.Count > 5)
