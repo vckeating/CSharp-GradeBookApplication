@@ -26,30 +26,34 @@ namespace GradeBook.GradeBooks
             //Determine what grades the students will have
             if (grades[threshold - 1] <= averageGrade)
                 return 'A';
-            else if (((grades[threshold * 2]) - 1) <= averageGrade)
+            else if (grades[((threshold * 2) - 1)] <= averageGrade)
                 return 'B';
-            else if (((grades[threshold * 3]) - 1) <= averageGrade)
+            else if (grades[((threshold * 3) - 1)] <= averageGrade)
                 return 'C';
-            else if (((grades[threshold * 4] ) - 1) <= averageGrade)
+            else if (grades[((threshold * 4 ) - 1)] <= averageGrade)
                 return 'D';
             else
                 return 'F';
         }
-        /**
-         In the RankedGradeBook class create an override for the GetLetterGrade method.
-        The GetLetterGrade method returns a char and accepts a double named "averageGrade".
-        If there are less than 5 students throw an InvalidOperationException.
-        (Ranked-grading requires a minimum of 5 students to work)
-        Return 'F' at the end of the method.
-         * **/
 
         public override void CalculateStatistics()
         {
+            if (Students.Count > 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade");
+                return;
+            }
             base.CalculateStatistics();
         }
 
+        //This method does not check if there is a grade on file for each student
         public override void CalculateStudentStatistics(string name)
         {
+            if (Students.Count > 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
             base.CalculateStudentStatistics(name);
         }
 
