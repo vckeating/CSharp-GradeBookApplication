@@ -33,14 +33,29 @@ namespace GradeBook.UserInterfaces
 
         public static void CreateCommand(string command)
         {
+            /*
+             GradeBook.UserInterfaces.StartingUserInterface didn't write
+             'Command not valid, Create requires a name and type of gradebook.' 
+             to the console when the create command didn't contain both a name and type.
+             */
+
             var parts = command.Split(' ');
             if (parts.Length != 3)
             {
                 Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
                 return;
             }
+            else if (parts.Length == 3 && (parts[1] == null || parts[2] == null))
+            {
+
+            }
             var name = parts[1];
-            var type = parts[2];
+            var type = parts[2].ToLower();
+            if (name == null && type == null)
+            {
+                Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
+            }
+
             BaseGradeBook gradeBook;
             if (type == "standard")
             {
