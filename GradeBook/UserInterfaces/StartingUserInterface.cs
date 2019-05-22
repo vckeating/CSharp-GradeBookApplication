@@ -47,7 +47,8 @@ namespace GradeBook.UserInterfaces
             }
             else if (parts.Length == 3 && (parts[1] == null || parts[2] == null))
             {
-
+                Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
+                return;
             }
             var name = parts[1];
             var type = parts[2].ToLower();
